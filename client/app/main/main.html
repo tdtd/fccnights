@@ -1,0 +1,75 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Nightlife</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="text-center" ng-hide="mCtrl.found">
+    <div>
+    <svg width='196px' height='196px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-default"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><rect  x='45' y='45' width='10' height='10' rx='360' ry='360' fill='rgba(137,137,137,0.549)' transform='rotate(0 50 50) translate(0 -11)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite'/></rect><rect  x='45' y='45' width='10' height='10' rx='360' ry='360' fill='rgba(137,137,137,0.549)' transform='rotate(36 50 50) translate(0 -11)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.1s' repeatCount='indefinite'/></rect><rect  x='45' y='45' width='10' height='10' rx='360' ry='360' fill='rgba(137,137,137,0.549)' transform='rotate(72 50 50) translate(0 -11)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.2s' repeatCount='indefinite'/></rect><rect  x='45' y='45' width='10' height='10' rx='360' ry='360' fill='rgba(137,137,137,0.549)' transform='rotate(108 50 50) translate(0 -11)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.3s' repeatCount='indefinite'/></rect><rect  x='45' y='45' width='10' height='10' rx='360' ry='360' fill='rgba(137,137,137,0.549)' transform='rotate(144 50 50) translate(0 -11)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.4s' repeatCount='indefinite'/></rect><rect  x='45' y='45' width='10' height='10' rx='360' ry='360' fill='rgba(137,137,137,0.549)' transform='rotate(180 50 50) translate(0 -11)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5s' repeatCount='indefinite'/></rect><rect  x='45' y='45' width='10' height='10' rx='360' ry='360' fill='rgba(137,137,137,0.549)' transform='rotate(216 50 50) translate(0 -11)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.6s' repeatCount='indefinite'/></rect><rect  x='45' y='45' width='10' height='10' rx='360' ry='360' fill='rgba(137,137,137,0.549)' transform='rotate(252 50 50) translate(0 -11)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.7s' repeatCount='indefinite'/></rect><rect  x='45' y='45' width='10' height='10' rx='360' ry='360' fill='rgba(137,137,137,0.549)' transform='rotate(288 50 50) translate(0 -11)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.8s' repeatCount='indefinite'/></rect><rect  x='45' y='45' width='10' height='10' rx='360' ry='360' fill='rgba(137,137,137,0.549)' transform='rotate(324 50 50) translate(0 -11)'>  <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.9s' repeatCount='indefinite'/></rect></svg>
+    </div>
+    <div>
+      <h1>SEARCHING...</h1>
+    </div>
+  </div>
+  
+  <div ng-show="mCtrl.found">
+    <div class="col-md-12 search">
+      <form ng-submit="mCtrl.search()">
+        <div class="input-group">
+          <span class="input-group-btn" ng-show="mCtrl.locAvail">
+            <button class="btn btn-default" type="button" ng-click="mCtrl.getLoc()"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
+          </span>
+          <input class="form-control" type="text" ng-model="mCtrl.loc"/>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+
+      </form>
+    </div>
+    <div class="col-md-12 card-holder" ng-show="mCtrl.barList.length != 0">
+      <ul>
+        <li ng-repeat="bar in mCtrl.barList track by $index" class="row col-md-12 card">
+          <div class="col-md-3">
+            <div class="blurb-image">
+              <img ng-src="{{bar.image_url}}" alt="image"/>
+            </div>
+          </div>
+          
+          <div class="col-md-9 info">
+            <div class="rating">
+              <span ng-repeat="star in bar.rating track by $index">
+                <span ng-show="star == 'full'"><i class="fa fa-star gold" aria-hidden="true"></i></span>
+                <span ng-show="star == 'half'"><i class="fa fa-star-half-o gold" aria-hidden="true"></i></span>
+                <span ng-show="star == 'empty'"><i class="fa fa-star-o grey" aria-hidden="true"></i></span>
+              </span>
+            </div>
+            
+            <div class="info-body">
+              
+              <div class="text">
+                <div class="name">
+                  <span> {{bar.name}} </span>
+                </div>
+                <div class="snippet">
+                  <span> {{bar.snippet_text}} </span>
+                </div>
+              </div>
+              
+              <div class="links">
+                <span class="pull-left">
+                  <span class="btn btn-default" ng-click="mCtrl.attending(bar)">Attending: {{bar.attending}}</span>
+                </span>
+                <span class="pull-right">
+                  <a href="{{bar.activeUrl}}"><span class="btn btn-default">More Info</span></a>
+                </span>
+              </div>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

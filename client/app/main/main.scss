@@ -1,0 +1,66 @@
+ul{
+  list-style: none;
+}
+
+.jumbotron{
+  margin-top: -20px;
+  background-image: url(../assets/images/dse.png);
+  padding-left: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  border-bottom: 1px solid #ddd;
+  h1{
+    color: #eee;
+    text-shadow: 0 0 10px #111;
+  }
+}
+
+.search{
+  margin-bottom: 10px;
+}
+
+.card-holder{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 1px 5px #111;
+  .card{
+    margin-bottom: 10px;
+    padding: 5px;
+    .blurb-image{
+      height: inherit;
+      text-align: center;
+      img{
+        display: inline-block;
+        height: 100%;
+        width: auto;
+      }
+    }
+    .info{
+      .rating{
+        font-size: 1.5em;
+      }
+      .info-body{
+        .text{
+          .name{
+            font-size: 1.8em;
+            font-weight: bold;
+          }
+          .snippet{
+          
+          }
+        }
+        .links{
+          
+        }
+      }
+    }
+  }
+}
+
+.gold{
+  color: #feec4c;
+}
+.grey{
+  color: #888;
+}
